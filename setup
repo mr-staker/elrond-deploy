@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function install_cinc {
+  curl -L https://omnitruck.cinc.sh/install.sh | bash -s -- -v "$1"
+}
+
+function client_rb {
+  mkdir -p /etc/cinc
+  cp client.rb /etc/cinc/client.rb
+}
+
+function dna_json {
+  mkdir -p /etc/cinc
+  cp dna.json /etc/cinc/dna.json
+}
+
+function expand_cookbooks {
+  mkdir -p /var/cinc
+  mv cookbooks.tar.gz /var/cinc/
+  # this is the default cookbooks path so no configuration needed
+  cd /var/cinc
+  echo 'Expanding in /var/cinc'
+  rm -rf cookbooks
+  tar -oxf cookbooks.tar.gz
+  chown -R root:root cookbooks
+  rm -f cookbooks.tar.gz
+}
+
+$@

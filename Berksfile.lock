@@ -1,0 +1,14 @@
+DEPENDENCIES
+  elrond
+    git: https://github.com/mr-staker/elrond-cookbook
+    revision: 8deecc09de6f366fa156c91b5cd7e58fb20a9087
+    branch: main
+  role-host001
+    path: role-host001
+
+GRAPH
+  elrond (1.0.0)
+    firewalld (~> 1.2.1)
+  firewalld (1.2.1)
+  role-host001 (1.0.0)
+    elrond (>= 0.0.0)
