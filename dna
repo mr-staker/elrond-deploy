@@ -1,0 +1,23 @@
+#!/opt/cinc/embedded/bin/ruby
+
+require 'json'
+require 'fileutils'
+
+def dna(role, token)
+  dna = {
+    run_list: "role-#{role}::default"
+  }
+
+  if token
+    dna['elrond'] = {
+      'keyvault' => {
+        'token' => token
+      }
+    }
+  end
+
+  File.write '/etc/cinc/dna.json', dna.to_json
+  FileUtils.chmod 0400, '/etc/cinc/dna.json'
+end
+
+dna ARGV.first, ENV['VAULT_TOKEN']

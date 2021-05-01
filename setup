@@ -2,6 +2,7 @@
 
 function install_cinc {
   curl -L https://omnitruck.cinc.sh/install.sh | bash -s -- -v "$1"
+  ln -sf /opt/cinc /opt/chef
 }
 
 function client_rb {
@@ -11,7 +12,7 @@ function client_rb {
 
 function dna_json {
   mkdir -p /etc/cinc
-  cp dna.json /etc/cinc/dna.json
+  ./dna "$1"
 }
 
 function expand_cookbooks {
