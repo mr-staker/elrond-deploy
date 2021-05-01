@@ -92,5 +92,5 @@ task :clean do
   rm_rf '.vagrant'
 end
 
-desc 'Chain build, sync, run tasks'
-task default: %i[build sync run]
+desc 'Chain update, build, sync, run tasks'
+task default: %i[update build sync run]

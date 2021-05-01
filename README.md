@@ -27,13 +27,23 @@ rake update        # Invoke berks update
 
 ### Install Cinc on target server
 
-The first bit which needs to be done is to install Cinc Client on your target server. This can be done with the cinc_install task:
+This must be run once. Installs Cinc Client on your target server. This can be done with the `cinc_install` task:
 
 ```bash
 rake cinc_install version=16.11.7 target=server
 ```
 
 `target` either the full specification of a ssh endpoint e.g user@host or it can be a Host per SSH config file, so in that example `Host server` is assumed to be specified in `~/.ssh/config` with appropriate values.
+
+### Install cookbooks
+
+This must be run once. Pulls down cookbooks from Supermarket / GitHub.
+
+```bash
+rake install
+```
+
+From this point onwards, the `update` task keeps them in sync.
 
 ### Run the deployment procedure
 
