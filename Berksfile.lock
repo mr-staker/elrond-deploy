@@ -1,7 +1,7 @@
 DEPENDENCIES
   elrond
     git: https://github.com/mr-staker/elrond-cookbook
-    revision: 7b2c48a1a9ccf635f06267791e2e477823bca280
+    revision: 268caf30d4563688d61d1c1df5795ae09060037f
     branch: main
   role-host001
     path: role-host001
