@@ -24,6 +24,7 @@ function expand_cookbooks {
   rm -rf cookbooks
   tar -oxf cookbooks.tar.gz
   chown -R root:root cookbooks
+  chmod 0700 cookbooks
   rm -f cookbooks.tar.gz
 }
 
