@@ -92,7 +92,16 @@ rake clean
 
 ## Deploying validators
 
-The validator nodes require a functioning Hashicorp Vault. A token is necessary for the first config run to seed the node keys or for subsequent runs if new nodes are added to your role cookbook. This expands on the run procedure:
+The validator nodes require a functioning Hashicorp Vault. A token is necessary for the first config run to seed the node keys or for subsequent runs if new nodes are added to your role cookbook. `vault_token` isn't necessary for anything else (e.g updating a node version).
+
+A one time use token can be created using something like:
+
+```bash
+vault login -address=https://vault.example.com:8200 # followed by supported auth method
+vault token create -address=https://vault.example.com:8200 -use-limit=1
+```
+
+This expands on the run procedure:
 
 ```bash
 rake target=server role=host001 vault_token=y
