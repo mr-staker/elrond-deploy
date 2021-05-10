@@ -109,7 +109,7 @@ rake target=server role=host001 vault_token=y
 
 This instructs the task to prompt for an input token, thus avoiding this token to be saved into your shell history. Please note that the input is not reflected for security reasons, so paste the token and hit return.
 
-To setup a validator node on the Elrond network:
+To [setup a validator node](https://docs.elrond.com/validators/staking/staking/) on the Elrond network:
 
 ```bash
 # n.b https://api.elrond.com - mainnet proxy address!
