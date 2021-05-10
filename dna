@@ -5,14 +5,14 @@ require 'fileutils'
 
 def dna(role, token)
   dna = {
-    run_list: "role-#{role}::default"
+    run_list: "role-#{role}::default",
   }
 
   if token
     dna['elrond'] = {
       'keyvault' => {
-        'token' => token
-      }
+        'token' => token,
+      },
     }
   end
 

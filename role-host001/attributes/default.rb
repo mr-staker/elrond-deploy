@@ -9,6 +9,6 @@ default['elrond']['keybase']['identity'] = 'mrstaker'
 default['elrond']['nodes'] = [
   {
     # basically, this is a testnet observer
-    id: 0
-  }
+    id: 0,
+  },
 ]

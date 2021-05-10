@@ -108,3 +108,22 @@ rake target=server role=host001 vault_token=y
 ```
 
 This instructs the task to prompt for an input token, thus avoiding this token to be saved into your shell history. Please note that the input is not reflected for security reasons, so paste the token and hit return.
+
+To setup a validator node on the Elrond network:
+
+```bash
+# n.b https://api.elrond.com - mainnet proxy address!
+rake validator id=0 keystore=/path/to/keystore.json target=server proxy=https://api.elrond.com
+```
+
+This requires `erdpy` to be properly installed in $PATH e.g via [erdpy-up.py](https://docs.elrond.com/sdk-and-tools/erdpy/installing-erdpy/).
+
+The `validator` task wraps `erdpy` and it does the following:
+
+ * Takes node ID and keystore path as arguments (specified as environment variables, see example).
+ * Prompts for keystore password.
+ * Prepares temporary passfile where the keystore password is stored. This is automatically removed after this task runs.
+ * Pulls down node key from remote server for the specified node ID. This is automatically removed after this task runs.
+ * Builds validators file to reference the node key pulled from remote. This is automatically removed after this task runs.
+
+Essentially, this wrapper has been created to ensure that no secrets (node key, passfile) are left exposed after `erdpy` runs.
